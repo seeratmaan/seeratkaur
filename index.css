@@ -1,0 +1,121 @@
+.body{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    height: 40px; 
+    background-color: rgb(213, 234, 213); 
+    margin: -10px;
+}
+
+.headerText{
+    float:left; 
+    padding: 5px;
+}
+#search{
+    float: right;
+    margin: 10px;
+}
+.welcomeText{
+    height: 100%; 
+    text-align:center; 
+    margin: 5px;
+}
+
+.introBigBox{
+    height: 270px; 
+    background-color: rgb(213, 234, 213); 
+    margin: 5px;
+    padding: 5px;
+}
+.introBoxLeft{
+    background-color: rgb(78, 97, 84); 
+    color: white; 
+    width: 60%; 
+    height: 250px; 
+    float:left; 
+    padding: 5px; 
+    margin: 5px;
+}
+.smallText{
+    font-size: 25px; 
+    text-align: center
+}
+.bigText{
+    font-size: 50px; 
+    text-align: center; 
+    padding: 5px; 
+    margin: 5px;
+}
+.color1{
+    color: rgb(78, 97, 84);
+}
+.color2{
+    color: white; 
+    background-color: rgb(78, 97, 84); 
+}
+.color2flip{
+    background-color: white; 
+    color: rgb(78, 97, 84); 
+}
+.introBoxRight{
+    width: 30%; 
+    height: 250px; 
+    float:right; 
+    padding: 5px; 
+    padding:5px; 
+    margin: 5px;
+}
+.aboutMeBigBox{
+    height: 270px; 
+    background-color: rgb(213, 234, 213); 
+    margin: 15px;
+    padding: 5px;
+    padding-bottom: 90px;
+    height: auto;
+}
+.exploreMeBigBox{
+    width: auto; 
+    height: 170px; 
+    background-color: rgb(213, 234, 213); 
+    padding: 5px;
+}
+
+#intro{
+    min-width: 15%; 
+    width: auto; 
+}
+
+.exploreMe{
+    background-color: rgb(78, 97, 84); 
+    color: white;  
+    float:left; 
+    text-align:center;
+    min-width: 15%;
+    margin: 5px;
+}
+
+.activityPic{
+    float: center;
+    height: 250px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid;
+}
+
+.footer{
+    background-color: rgb(241, 241, 219); 
+    text-align:center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.course-item img {
+    width: 200px; /* Set the width of the image */
+    height: auto; /* Maintain the aspect ratio */
+  }

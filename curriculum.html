@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seerat Kaur</title>
+    <link rel="stylesheet"  href="index.css">
+</head>
+<body>
+    <div class="header"> 
+        <a href="index.html"><p class="headerText exploreMe" id="intro">Home</p></a>
+        <a href="https://www.cdicollege.ca/"><p class="headerText exploreMe">College</p></a>
+        <a href="resume.html"><p class="headerText exploreMe">Resume</p></a>
+        <a href="curriculum.html"><p class="headerText exploreMe">Curriculum</p></a>
+        <input type="text" id="search" placeholder="Search Curriculum...">
+    </div>
+
+    <div class="welcomeText">
+        <h1>WELCOME TO MY WEBSITE</h1>
+    </div>
+    <div class="aboutMeBigBox">
+        <h3 class="smallText color1">Computer Programming &#128187; </h3>
+        <p class="bigText color2">Lets explore my courses</p>    
+   
+
+    <section id="filters">
+        <h2>Filter by Level:</h2>
+        <button onclick="filterByLevel('Beginner')">Beginner</button>
+        <button onclick="filterByLevel('Intermediate')">Intermediate</button>
+        <button onclick="filterByLevel('Advanced')">Advanced</button>
+    </section>
+    
+    <section id="sorting">
+        <h2>Sort by Level:</h2>
+        <button onclick="sortByLevel('asc')">Lowest to Highest</button>
+        <button onclick="sortByLevel('desc')">Highest to Lowest</button>
+     </section>
+    
+     <section id="courses">
+        <!-- Course items will be dynamically added here -->
+     </section>
+    
+     <script src="scripts.js"></script>
+ </div>
+
+    <div class="footer">
+        <h2>&#169;&#65039;SEERAT KAUR</h2><p>Designed by <a href=" www.freepik.com">Freepik</a></p>
+    </div>
+    
+    <script>
+        const courses = [
+            { title: "CST8285: Web Programming", level: "Beginner", description: "Web Programming Fundamentals and Technologies", image:"pics/webprog.avif" },
+            { title: "CST8102: Operating System Fundamentals (GNU/Linux)", level: "Intermediate", description: "Learning about Operating System Fundamentals (Linux)", image:"pics/os.jpg" },
+            { title: "CST8284 Object Oriented Programming", level: "Advanced", description: "Learning the fundamentals of OOPS concepts", image:"pics/oops.jpg" },
+            { title: "ENL2019T: Technical Communication for Engineering Technologies", level: "Beginner", description: "Learning about Technical Documentation and Project Proposal", image:"pics/doc.jpg" },
+            { title: "CST2355: Database Systems", level: "Intermediate", description: "Learning about the functionality of DataBase Systems", image:"pics/db.jpg" },
+            { title: "GED0022: Positive Psychology- The Science of Happiness and Well Being", level: "Beginner", description: "Learning about Psychology and Behaviour", image:"pics/psych.jpg" },
+        ];
+
+        function displayCourses(coursesArray) {
+            const coursesSection = document.getElementById('courses');
+            coursesSection.innerHTML = ''; // Clear previous content
+            
+            coursesArray.forEach(course => {
+                const courseItem = document.createElement('div');
+                courseItem.classList.add('course-item');
+                courseItem.innerHTML = `
+                    <img src="${course.image}" alt="${course.title}">
+                    <h3>${course.title}</h3>
+                    <p><strong>Level:</strong> ${course.level}</p>
+                    <p>${course.description}</p>
+                    `;
+                coursesSection.appendChild(courseItem);
+            });
+        }
+
+        function filterCourses(query) {
+            const filteredCourses = courses.filter(course => {
+                const titleMatch = course.title.toLowerCase().includes(query.toLowerCase());
+                const levelMatch = course.level.toLowerCase().includes(query.toLowerCase());
+                const descriptionMatch = course.description.toLowerCase().includes(query.toLowerCase());
+                return titleMatch || levelMatch || descriptionMatch;
+            });
+            displayCourses(filteredCourses);
+        }
+
+        function filterByLevel(level) {
+            const filteredCourses = courses.filter(course => course.level === level);
+            displayCourses(filteredCourses);
+        }
+
+        function sortByLevel(order) {
+            const sortedCourses = [...courses];
+            sortedCourses.sort((a, b) => order === 'asc' ? a.level.localeCompare(b.level) : b.level.localeCompare(a.level));
+            displayCourses(sortedCourses);
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('search');
+        searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim();
+        filterCourses(query);
+        });
+    </script>
+    </body>
+</html>
